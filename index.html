@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#eef6ff">
+<title>Adjective → Noun Word Formation | B1–B2 English</title>
+<style>
+  :root{
+    --bg:#eef6ff;
+    --card:#ffffff;
+    --primary:#4a8fd4;
+    --primary-dark:#2f6ea8;
+    --primary-soft:#d8eafb;
+    --primary-soft-2:#eef6ff;
+    --text:#1e3550;
+    --muted:#6b87a5;
+    --border:#d3e4f5;
+    --good:#1f7a55;
+    --good-bg:#e8f7f0;
+    --good-bd:#a9dcc4;
+    --bad:#a13030;
+    --bad-bg:#fdf0f0;
+    --bad-bd:#f0b9b9;
+    --noun:#2b7a63;
+    --radius:18px;
+    --shadow:0 6px 22px rgba(45,90,140,.10);
+    --shadow-sm:0 2px 10px rgba(45,90,140,.08);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+    background:linear-gradient(180deg,#f2f8ff 0%,#e7f1fb 100%);
+    background-attachment:fixed;
+    color:var(--text);
+    line-height:1.55;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,p{margin:0;}
+  button{font-family:inherit;}
+  .sr-only{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+    clip:rect(0,0,0,0);white-space:nowrap;border:0;
+  }
+  :focus-visible{outline:3px solid #2f7fd0;outline-offset:2px;border-radius:10px;}
+
+  /* ---------- HEADER ---------- */
+  .app-header{text-align:center;padding:26px 16px 10px;}
+  .app-header h1{
+    font-size:clamp(1.25rem,4.6vw,2rem);
+    letter-spacing:-.02em;
+    line-height:1.25;
+    color:var(--primary-dark);
+    font-weight:800;
+  }
+  .subtitle{margin-top:6px;color:var(--muted);font-size:clamp(.88rem,2.6vw,1.02rem);}
+  .target{
+    display:inline-block;margin-top:12px;background:var(--primary-soft);color:var(--primary-dark);
+    padding:5px 16px;border-radius:999px;font-size:.78rem;font-weight:700;letter-spacing:.03em;
+  }
+
+  /* ---------- NAV ---------- */
+  .tabs-wrap{
+    position:sticky;top:0;z-index:30;
+    background:rgba(240,247,255,.94);
+    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .tabs{
+    display:flex;gap:6px;overflow-x:auto;padding:9px 12px;
+    max-width:1040px;margin:0 auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  }
+  .tabs::-webkit-scrollbar{display:none;}
+  .tab{
+    flex:0 0 auto;min-height:44px;padding:10px 16px;border-radius:999px;
+    border:1px solid transparent;background:transparent;color:var(--muted);
+    font-size:.92rem;font-weight:700;cursor:pointer;white-space:nowrap;
+    transition:background .18s,color .18s,box-shadow .18s;
+  }
+  .tab:hover{background:#fff;color:var(--primary-dark);}
+  .tab.active{background:var(--primary);color:#fff;box-shadow:0 4px 14px rgba(74,143,212,.35);}
+  @media(min-width:960px){
+    .tabs{flex-wrap:wrap;justify-content:center;overflow:visible;}
+  }
+
+  /* ---------- LAYOUT ---------- */
+  main{max-width:1040px;margin:0 auto;padding:18px 14px 70px;}
+  .view{display:none;}
+  .view.active{display:block;animation:fadeUp .3s ease;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+
+  .card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+    padding:20px;box-shadow:var(--shadow);margin-bottom:16px;overflow-wrap:break-word;
+  }
+  .card-title{font-size:1.12rem;font-weight:800;color:var(--primary-dark);margin-bottom:10px;}
+  .center{text-align:center;}
+  .muted{color:var(--muted);font-size:.92rem;}
+  .ok-msg{color:var(--good);font-weight:700;font-size:1.05rem;margin-bottom:6px;}
+
+  .eyebrow{
+    font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:4px;
+  }
+  .label{
+    display:block;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:4px;
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .btn{
+    min-height:48px;padding:12px 20px;border-radius:14px;border:1px solid var(--border);
+    background:#fff;color:var(--text);font-size:1rem;font-weight:700;cursor:pointer;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    transition:background .16s,border-color .16s,color .16s,transform .1s;
+    text-align:center;
+  }
+  .btn:hover{border-color:var(--primary);color:var(--primary-dark);background:#f7fbff;}
+  .btn:active{transform:translateY(1px);}
+  .btn.primary{background:var(--primary);border-color:var(--primary);color:#fff;}
+  .btn.primary:hover{background:var(--primary-dark);border-color:var(--primary-dark);color:#fff;}
+  .btn.good{background:var(--good-bg);border-color:var(--good-bd);color:var(--good);}
+  .btn.warn{background:#fff6e7;border-color:#f0d7a6;color:#8f6312;}
+  .btn.danger{background:#fdecec;border-color:#f0b9b9;color:var(--bad);}
+  .btn.danger:hover{background:#f9dede;border-color:#e39b9b;color:var(--bad);}
+  .btn.ghost{background:transparent;border-color:transparent;color:var(--primary-dark);text-decoration:underline;min-height:44px;padding:8px 10px;}
+  .btn.ghost:hover{background:var(--primary-soft-2);}
+  .btn.lg{min-height:56px;font-size:1.05rem;padding:14px 24px;}
+  .btn.small{min-height:44px;padding:8px 14px;font-size:.88rem;}
+  .btn.full{width:100%;}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+
+  .row-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
+  .row-actions .btn{flex:1 1 140px;}
+  .row-actions.center-row{justify-content:center;}
+
+  /* ---------- STATS ---------- */
+  .stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px;}
+  @media(min-width:560px){.stat-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(min-width:900px){.stat-grid{grid-template-columns:repeat(6,1fr);}}
+  .stat{
+    background:#fff;border:1px solid var(--border);border-radius:16px;padding:14px 8px;
+    text-align:center;box-shadow:var(--shadow-sm);
+  }
+  .stat-num{display:block;font-size:1.55rem;font-weight:800;color:var(--primary-dark);line-height:1.2;}
+  .stat-label{display:block;font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:700;margin-top:3px;}
+
+  .progress{
+    height:16px;border-radius:999px;background:#e3eefb;overflow:hidden;
+    border:1px solid var(--border);
+  }
+  .progress.thin{height:9px;margin-bottom:14px;}
+  .progress-fill{
+    height:100%;width:0;border-radius:999px;
+    background:linear-gradient(90deg,#8cc3ee,#4a8fd4);
+    transition:width .55s ease;
+  }
+
+  /* ---------- CHIPS / TAGS ---------- */
+  .chip{
+    display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;
+    background:#fff;border:1px solid var(--border);font-size:.78rem;font-weight:700;color:var(--muted);
+  }
+  .chip.tiny{font-size:.7rem;padding:4px 10px;}
+  .chip-mastered{background:var(--good-bg);border-color:var(--good-bd);color:var(--good);}
+  .mode-head{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px;}
+  .tag{
+    display:inline-block;padding:3px 10px;border-radius:999px;background:var(--primary-soft-2);
+    border:1px solid var(--border);font-size:.72rem;font-weight:700;color:var(--muted);
+  }
+  .tag-warn{background:#fff6e7;border-color:#f0d7a6;color:#8f6312;}
+
+  /* ---------- LEARN ---------- */
+  .big-word{
+    font-size:clamp(2rem,9vw,3.1rem);font-weight:800;letter-spacing:-.02em;
+    color:var(--primary-dark);line-height:1.12;word-break:break-word;margin:4px 0 6px;
+  }
+  .big-word.noun{color:var(--noun);}
+  .ipa{
+    font-size:1.14rem;color:var(--muted);letter-spacing:.02em;margin:2px 0 10px;
+    font-family:"Segoe UI","Charis SIL","Doulos SIL","Lucida Sans Unicode","Noto Sans",serif;
+    word-break:break-word;
+  }
+  .level-line{font-size:.85rem;color:var(--muted);margin-bottom:14px;}
+  .hint{
+    margin:14px 0 16px;padding:14px 16px;border-radius:14px;background:var(--primary-soft-2);
+    border:1px dashed #b9d7f2;font-weight:700;color:var(--primary-dark);font-size:.98rem;
+  }
+  .hint .muted{font-weight:500;font-size:.86rem;}
+  .reveal{animation:fadeUp .35s ease;}
+  .info-grid{display:grid;gap:12px;margin:14px 0;}
+  @media(min-width:560px){.info-grid{grid-template-columns:1fr 1fr;}}
+  .info-grid > div{background:var(--primary-soft-2);border-radius:14px;padding:12px 14px;}
+  .info-grid p{font-size:1.02rem;font-weight:600;}
+  .example{background:#f7fbff;border:1px solid var(--border);border-radius:14px;padding:12px 14px;margin-bottom:12px;}
+  .example p{font-style:italic;font-size:1.02rem;}
+  .formation{background:#f4fbf8;border:1px solid #cfe9df;border-radius:14px;padding:12px 14px;}
+  .form-line{font-weight:800;color:var(--noun);font-size:1.05rem;letter-spacing:.01em;}
+  .why-box{
+    margin-top:10px;padding:14px 16px;background:var(--primary-soft-2);
+    border-left:4px solid var(--primary);border-radius:12px;font-size:.96rem;
+    animation:fadeUp .25s ease;
+  }
+  .why-btn{margin-top:12px;}
+
+  .audio-block{
+    display:flex;flex-direction:column;gap:6px;align-items:flex-start;
+    margin:12px 0;padding:12px 14px;border-radius:14px;background:#f7fbff;border:1px solid var(--border);
+  }
+  .audio-btn{background:var(--primary-soft);border-color:#bcdcf7;color:var(--primary-dark);width:100%;}
+  .audio-btn:hover{background:#cbe4fa;}
+  .audio-status{font-size:.8rem;color:var(--muted);margin:0;}
+
+  /* ---------- FLASHCARDS ---------- */
+  .flashcard{
+    position:relative;perspective:1400px;cursor:pointer;
+    height:min(58vh,420px);min-height:300px;margin-bottom:16px;
+    border-radius:22px;
+  }
+  .fc-inner{
+    position:relative;width:100%;height:100%;
+    transition:transform .55s cubic-bezier(.4,.2,.2,1);
+    transform-style:preserve-3d;
+  }
+  .flashcard.flipped .fc-inner{transform:rotateY(180deg);}
+  .fc-face{
+    position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    background:#fff;border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow);
+    padding:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;overflow:auto;
+  }
+  .fc-back{transform:rotateY(180deg);background:linear-gradient(180deg,#ffffff 0%,#f4fbff 100%);}
+  .fc-word{font-size:clamp(1.6rem,7.5vw,2.6rem);font-weight:800;letter-spacing:-.01em;word-break:break-word;color:var(--primary-dark);line-height:1.15;}
+  .fc-back .fc-word{color:var(--noun);}
+  .fc-tap{margin-top:16px;font-size:.85rem;color:var(--muted);}
+  .fc-vi{margin-top:6px;font-size:1.08rem;font-weight:700;}
+  .fc-ex{margin-top:10px;font-style:italic;font-size:.95rem;color:var(--muted);}
+  .fc-form{margin-top:12px;font-weight:800;color:var(--noun);font-size:.95rem;}
+
+  /* ---------- QUESTIONS / OPTIONS ---------- */
+  .question{font-size:1.1rem;font-weight:600;margin-bottom:4px;line-height:1.5;}
+  .question em{color:var(--primary-dark);font-style:italic;}
+  .options{display:grid;gap:10px;margin-top:16px;}
+  .option{
+    min-height:56px;text-align:left;padding:14px 18px;border-radius:14px;
+    border:1.5px solid var(--border);background:#fff;font-size:1.04rem;font-weight:600;
+    cursor:pointer;color:var(--text);transition:background .15s,border-color .15s;
+    display:flex;align-items:center;
+  }
+  .option:hover:not(:disabled){border-color:var(--primary);background:var(--primary-soft-2);}
+  .option.correct{background:var(--good-bg);border-color:#5cb98c;color:var(--good);}
+  .option.wrong{background:var(--bad-bg);border-color:#e08d8d;color:var(--bad);}
+  .option.dim{opacity:.55;}
+  .option:disabled{cursor:default;}
+
+  .answer-form{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+  @media(min-width:600px){.answer-form{flex-direction:row;}.answer-form .input{flex:1;}}
+  .input{
+    width:100%;min-height:52px;padding:12px 16px;border-radius:14px;
+    border:1.5px solid var(--border);font-size:1.05rem;background:#fff;color:var(--text);
+    font-family:inherit;
+  }
+  .input:focus{border-color:var(--primary);outline:none;box-shadow:0 0 0 3px rgba(74,143,212,.18);}
+  .input:disabled{background:#f5f9fd;}
+
+  .feedback{
+    margin-top:16px;padding:16px;border-radius:14px;border:1.5px solid;
+    animation:fadeUp .25s ease;
+  }
+  .feedback.ok{background:var(--good-bg);border-color:var(--good-bd);}
+  .feedback.bad{background:var(--bad-bg);border-color:var(--bad-bd);}
+  .fb-title{font-size:1.12rem;font-weight:800;margin-bottom:6px;}
+  .feedback.ok .fb-title{color:var(--good);}
+  .feedback.bad .fb-title{color:var(--bad);}
+  .feedback p{font-size:.96rem;margin-bottom:3px;}
+  .hint-text{margin-top:10px;padding:10px 12px;background:#fff8e8;border:1px dashed #e8cd93;border-radius:12px;font-size:.92rem;}
+
+  .score-big{font-size:clamp(2.2rem,10vw,3.4rem);font-weight:800;color:var(--primary-dark);line-height:1.1;margin:6px 0;}
+
+  /* ---------- WORD LIST ---------- */
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .chip-btn{
+    min-height:44px;padding:8px 16px;border-radius:999px;border:1px solid var(--border);
+    background:#fff;color:var(--muted);font-size:.86rem;font-weight:700;cursor:pointer;
+    transition:background .15s,color .15s,border-color .15s;
+  }
+  .chip-btn:hover{border-color:var(--primary);color:var(--primary-dark);}
+  .chip-btn.active{background:var(--primary);border-color:var(--primary);color:#fff;}
+  .word-list{display:grid;gap:14px;}
+  @media(min-width:760px){.word-list{grid-template-columns:1fr 1fr;}}
+  .word-card{
+    background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+    padding:16px;box-shadow:var(--shadow-sm);
+  }
+  .wc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;}
+  .wc-form{font-size:1.08rem;font-weight:800;color:var(--primary-dark);word-break:break-word;}
+  .wc-form .arrow{color:var(--muted);margin:0 4px;}
+  .wc-form .noun{color:var(--noun);}
+  .wc-vi{font-weight:700;font-size:.98rem;margin-bottom:4px;}
+  .wc-ex{font-style:italic;font-size:.9rem;color:var(--muted);}
+  .wc-foot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px;}
+
+  /* ---------- DIALOG ---------- */
+  dialog{
+    border:none;border-radius:20px;padding:0;max-width:440px;width:calc(100% - 32px);
+    box-shadow:0 24px 70px rgba(20,50,90,.35);
+  }
+  dialog::backdrop{background:rgba(20,50,90,.45);}
+  .dialog-body{padding:22px;}
+  .dialog-body h2{font-size:1.15rem;font-weight:800;color:var(--primary-dark);margin-bottom:10px;}
+  .dialog-body p{font-size:.95rem;color:var(--muted);margin-bottom:6px;}
+
+  /* ---------- MISC ---------- */
+  .streak-line{font-size:1.6rem;font-weight:800;color:var(--primary-dark);}
+  .daily-msg{font-size:1.05rem;margin-bottom:12px;}
+  .stat-row{
+    display:flex;justify-content:space-between;gap:12px;padding:10px 0;
+    border-bottom:1px solid var(--border);font-size:.95rem;
+  }
+  .stat-row:last-child{border-bottom:none;}
+  .stat-row strong{color:var(--primary-dark);}
+  .list-mini{list-style:none;padding:0;margin:0;}
+  .list-mini li{
+    display:flex;justify-content:space-between;gap:10px;padding:9px 0;
+    border-bottom:1px dashed var(--border);font-size:.95rem;
+  }
+  .list-mini li:last-child{border-bottom:none;}
+  .list-mini .mini-form{font-weight:700;}
+  .list-mini .mini-form .noun{color:var(--noun);}
+  .list-mini .mini-val{color:var(--muted);font-weight:700;white-space:nowrap;}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{
+      animation-duration:.001ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.001ms !important;
+      scroll-behavior:auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<a class="sr-only" href="#main">Skip to main content</a>
+
+<header class="app-header">
+  <h1>Adjective → Noun Word Formation</h1>
+  <p class="subtitle">Learn, Review &amp; Practise English Word Formation</p>
+  <p class="target">B1–B2 English Learners</p>
+</header>
+
+<nav class="tabs-wrap" aria-label="Main navigation">
+  <div class="tabs">
+    <button type="button" class="tab active" data-view="home" aria-current="page">Home</button>
+    <button type="button" class="tab" data-view="learn">Learn</button>
+    <button type="button" class="tab" data-view="flashcards">Flashcards</button>
+    <button type="button" class="tab" data-view="words">Words</button>
+    <button type="button" class="tab" data-view="practice">Practice</button>
+    <button type="button" class="tab" data-view="quiz">Quiz</button>
+    <button type="button" class="tab" data-view="review">Review</button>
+    <button type="button" class="tab" data-view="progress">Progress</button>
+  </div>
+</nav>
+
+<main id="main">
+  <section id="view-home" class="view active" aria-label="Home"></section>
+  <section id="view-learn" class="view" aria-label="Learn"></section>
+  <section id="view-flashcards" class="view" aria-label="Flashcards"></section>
+  <section id="view-words" class="view" aria-label="Word bank"></section>
+  <section id="view-practice" class="view" aria-label="Practice"></section>
+  <section id="view-quiz" class="view" aria-label="Quiz"></section>
+  <section id="view-review" class="view" aria-label="Review"></section>
+  <section id="view-progress" class="view" aria-label="Progress"></section>
+</main>
+
+<dialog id="confirmReset" aria-labelledby="resetTitle">
+  <div class="dialog-body">
+    <h2 id="resetTitle">Reset Progress?</h2>
+    <p>Toàn bộ tiến độ học (mastery, quiz scores, review list, streak) sẽ bị xoá vĩnh viễn.</p>
+    <p>This action cannot be undone.</p>
+    <div class="row-actions">
+      <button type="button" class="btn" data-action="reset-cancel">Cancel</button>
+      <button type="button" class="btn danger" data-action="reset-confirm">Reset Progress</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+/* =========================================================================
+   1. VOCABULARY DATA (20 items — exactly as supplied)
+   ========================================================================= */
+const WORDS = [
+  {
+    id:'mountain', adj:'mountainous', noun:'mountain', pos:'noun (countable)',
+    ipa:'/ˈmaʊntɪn/', vi:'núi; vùng núi',
+    example:'The mountain is covered with snow.',
+    formation:'mountainous → mountain',
+    why:'mountain là danh từ gốc; thêm hậu tố -ous để tạo tính từ mountainous (thuộc về núi, đầy núi). Đây không phải là chuyển đổi bằng hậu tố danh từ.',
+    level:'B1', lessCommon:false
+  },
+  {
+    id:'tremendousness', adj:'tremendous', noun:'tremendousness', pos:'noun (uncountable)',
+    ipa:'/trɪˈmendəsnəs/', vi:'sự to lớn, phi thường',
+    example:'The tremendousness of the project surprised everyone.',
+    formation:'tremendous → tremendousness',
+    why:'Thêm hậu tố -ness vào tính từ tremendous để tạo danh từ tremendousness. Dạng này ít gặp trong văn nói; thường dùng trong văn viết trang trọng.',
+    level:'B2', lessCommon:true
+  },
+  {
+    id:'courage', adj:'courageous', noun:'courage', pos:'noun (uncountable)',
+    ipa:'/ˈkʌrɪdʒ/', vi:'lòng can đảm',
+    example:'It takes courage to admit your mistakes.',
+    formation:'courageous → courage',
+    why:'Bỏ hậu tố -ous: courageous → courage. Lưu ý: KHÔNG dùng "courageousness" trong cách nói thông thường.',
+    level:'B1', lessCommon:false
+  },
+  {
+    id:'industry', adj:'industrious', noun:'industry', pos:'noun (uncountable / countable)',
+    ipa:'/ˈɪndəstri/', vi:'sự chăm chỉ; ngành công nghiệp',
+    example:'His industry and determination led to success.',
+    formation:'industrious → industry',
+    why:'-ous → -y: industrious → industry. Nghĩa "sự chăm chỉ" ít gặp hơn nghĩa "ngành công nghiệp".',
+    level:'B2', lessCommon:false
+  },
+  {
+    id:'continuity', adj:'continuous', noun:'continuity', pos:'noun (uncountable)',
+    ipa:'/ˌkɒntɪˈnjuːəti/', vi:'tính liên tục',
+    example:'The project requires continuity.',
+    formation:'continuous → continuity',
+    why:'Bỏ -ous và thêm -ity: continuous → continuity. Chú ý trọng âm chuyển sang âm tiết thứ ba (-nu-).',
+    level:'B2', lessCommon:false
+  },
+  {
+    id:'gorgeousness', adj:'gorgeous', noun:'gorgeousness', pos:'noun (uncountable)',
+    ipa:'/ˈɡɔːdʒəsnəs/', vi:'vẻ đẹp lộng lẫy',
+    example:'The gorgeousness of the scenery attracted tourists.',
+    formation:'gorgeous → gorgeousness',
+    why:'Thêm hậu tố -ness vào tính từ gorgeous. Dạng này ít phổ biến hơn cách nói "gorgeous beauty" hay "splendour".',
+    level:'B2', lessCommon:true
+  },
+  {
+    id:'wonder', adj:'wondrous', noun:'wonder', pos:'noun (uncountable / countable)',
+    ipa:'/ˈwʌndə/', vi:'điều kỳ diệu; sự kỳ diệu',
+    example:'The children looked at the stars in wonder.',
+    formation:'wondrous → wonder',
+    why:'wonder là danh từ gốc; thêm hậu tố -ous tạo thành tính từ wondrous (kỳ diệu). Danh từ vẫn là wonder.',
+    level:'B2', lessCommon:false
+  },
+  {
+    id:'nutrition', adj:'nutritious', noun:'nutrition', pos:'noun (uncountable)',
+    ipa:'/njuːˈtrɪʃən/', vi:'dinh dưỡng',
+    example:'Good nutrition is essential for children.',
+    formation:'nutritious → nutrition',
+    why:'Bỏ hậu tố -ous và thêm -ion: nutritious → nutrition. Cùng họ: nutrition (n), nutritious (adj).',
+    level:'B1', lessCommon:false
+  },
+  {
+    id:'caution', adj:'cautious', noun:'caution', pos:'noun (uncountable)',
+    ipa:'/ˈkɔːʃən/', vi:'sự thận trọng',
+    example:'You should exercise caution when driving at night.',
+    formation:'cautious → caution',
+    why:'Bỏ hậu tố -ous: cautious → caution. Đây là kiểu adjective → noun bằng cách bỏ hậu tố.',
+    level:'B2', lessCommon:false
+  },
+  {
+    id:'preciousness', adj:'precious', noun:'preciousness', pos:'noun (uncountable)',
+    ipa:'/ˈpreʃəsnəs/', vi:'sự quý giá',
+    example:'The preciousness of family time is often overlooked.',
+    formation:'precious → preciousness',
+    why:'Thêm hậu tố -ness vào precious. Dạng này ít gặp hơn "value" hay "precious quality".',
+    level:'B2', lessCommon:true
+  },
+  {
+    id:'fabulousness', adj:'fabulous', noun:'fabulousness', pos:'noun (uncountable)',
+    ipa:'/ˈfæbjələsnəs/', vi:'sự tuyệt vời',
+    example:'The fabulousness of the performance impressed the audience.',
+    formation:'fabulous → fabulousness',
+    why:'Thêm hậu tố -ness vào fabulous. Ít gặp trong văn viết trang trọng; thường dùng để nhấn mạnh trong văn nói.',
+    level:'B2', lessCommon:true
+  },
+  {
+    id:'jealousy', adj:'jealous', noun:'jealousy', pos:'noun (uncountable)',
+    ipa:'/ˈdʒeləsi/', vi:'sự ghen tị',
+    example:'Jealousy can damage a relationship.',
+    formation:'jealous → jealousy',
+    why:'-ous → -ousy: jealous → jealousy. Chú ý chính tả: bỏ -ous, thêm -ousy.',
+    level:'B1', lessCommon:false
+  },
+  {
+    id:'glory', adj:'glorious', noun:'glory', pos:'noun (uncountable)',
+    ipa:'/ˈɡlɔːri/', vi:'vinh quang',
+    example:'The team returned home in glory.',
+    formation:'glorious → glory',
+    why:'Bỏ hậu tố -ious và đổi thành -y: glorious → glory.',
+    level:'B2', lessCommon:false
+  },
+  {
+    id:'obviousness', adj:'obvious', noun:'obviousness', pos:'noun (uncountable)',
+    ipa:'/ˈɒbviəsnəs/', vi:'tính hiển nhiên',
+    example:'The obviousness of the answer made the question easy.',
+    formation:'obvious → obviousness',
+    why:'Thêm hậu tố -ness vào obvious. Ít gặp; người bản ngữ thường nói "it is obvious that…".',
+    level:'B2', lessCommon:true
+  },
+  {
+    id:'tediousness', adj:'tedious', noun:'tediousness', pos:'noun (uncountable)',
+    ipa:'/ˈtiːdiəsnəs/', vi:'sự tẻ nhạt',
+    example:'The tediousness of the task made him tired.',
+    formation:'tedious → tediousness',
+    why:'Thêm hậu tố -ness vào tedious. Ít gặp hơn "boredom" hay "tedium".',
+    level:'B2', lessCommon:true
+  },
+  {
+    id:'curiosity', adj:'curious', noun:'curiosity', pos:'noun (uncountable / countable)',
+    ipa:'/ˌkjʊəriˈɒsəti/', vi:'sự tò mò',
+    example:'Curiosity helps children learn new things.',
+    formation:'curious → curiosity',
+    why:'-ous → -osity: curious → curiosity. Trọng âm chuyển về âm tiết thứ ba (-os-).',
+    level:'B1', lessCommon:false
+  },
+  {
+    id:'nervousness', adj:'nervous', noun:'nervousness', pos:'noun (uncountable)',
+    ipa:'/ˈnɜːvəsnəs/', vi:'sự lo lắng, hồi hộp',
+    example:'Her nervousness was obvious before the exam.',
+    formation:'nervous → nervousness',
+    why:'Thêm hậu tố -ness vào nervous. Đây là dạng danh từ thông dụng của nervous.',
+    level:'B2', lessCommon:true
+  },
+  {
+    id:'fury', adj:'furious', noun:'fury', pos:'noun (uncountable / countable)',
+    ipa:'/ˈfjʊəri/', vi:'cơn giận dữ',
+    example:'He could hardly control his fury.',
+    formation:'furious → fury',
+    why:'Biến đổi bất quy tắc: furious → fury (bỏ -ious, thêm -y). Không có dạng "furiousness" thông dụng.',
+    level:'B2', lessCommon:false
+  },
+  {
+    id:'studiousness', adj:'studious', noun:'studiousness', pos:'noun (uncountable)',
+    ipa:'/ˈstjuːdiəsnəs/', vi:'sự chăm chỉ học tập',
+    example:'Her studiousness helped her achieve excellent results.',
+    formation:'studious → studiousness',
+    why:'Thêm hậu tố -ness vào studious. Ít gặp; thường dùng "hard work" hay "diligence".',
+    level:'B2', lessCommon:true
+  },
+  {
+    id:'variety', adj:'various', noun:'variety', pos:'noun (countable / uncountable)',
+    ipa:'/vəˈraɪəti/', vi:'sự đa dạng',
+    example:'The restaurant offers a wide variety of dishes.',
+    formation:'various → variety',
+    why:'Biến đổi đặc biệt: various → variety. Không theo quy tắc -ous → -ness.',
+    level:'B1', lessCommon:false
+  }
+];
+
+const WORD_BY_ID = {};
+WORDS.forEach(function(w){ WORD_BY_ID[w.id] = w; });
+
+const QUIZ_TYPES = ['adj2noun','noun2adj','meaning','ipa','sentence','fillblank'];
+
+/* =========================================================================
+   2. STATE + LOCAL STORAGE
+   ========================================================================= */
+const STORAGE_KEY = 'adjnoun_wordformation_v1';
+
+let state = {
+  words: {},
+  streak: 0,
+  lastStudyDate: null,
+  quizzes: []
+};
+
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(raw){
+      const parsed = JSON.parse(raw);
+      if(parsed && typeof parsed === 'object'){
+        state.words = parsed.words && typeof parsed.words === 'object' ? parsed.words : {};
+        state.streak = typeof parsed.streak === 'number' ? parsed.streak : 0;
+        state.lastStudyDate = parsed.lastStudyDate || null;
+        state.quizzes = Array.isArray(parsed.quizzes) ? parsed.quizzes : [];
+      }
+    }
+  }catch(e){
+    state = { words:{}, streak:0, lastStudyDate:null, quizzes:[] };
+  }
+}
+
+function saveState(){
+  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }catch(e){}
+}
+
+function getRec(id){
+  if(!state.words[id]){
+    state.words[id] = {
+      mastery:0, correct:0, incorrect:0, reviews:0,
+      needReview:false, difficult:false, lastStudied:null
+    };
+  }
+  return state.words[id];
+}
+
+function masteryOf(id){
+  const r = state.words[id];
+  return r && typeof r.mastery === 'number' ? r.mastery : 0;
+}
+
+function levelLabel(m){
+  if(m <= 0) return 'Not started';
+  if(m <= 25) return 'Seen';
+  if(m <= 50) return 'Practising';
+  if(m <= 75) return 'Almost mastered';
+  return 'Mastered';
+}
+
+/* =========================================================================
+   3. HELPERS
+   ========================================================================= */
+function esc(s){
+  return String(s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    const t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+
+function escapeRegExp(s){
+  return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function dateStr(d){
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return y + '-' + m + '-' + day;
+}
+
+function normAnswer(s){
+  return String(s).toLowerCase().trim().replace(/\s+/g, ' ').replace(/[.,!?;:"'’]/g, '');
+}
+
+function normSearch(s){
+  return String(s)
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/đ/g, 'd')
+    .replace(/Đ/g, 'd');
+}
+
+function blankSentence(example, noun){
+  const re = new RegExp('\\b' + escapeRegExp(noun) + '\\b', 'i');
+  if(re.test(example)) return example.replace(re, '______');
+  return example;
+}
+
+function buildOptions(correct, pool){
+  const unique = [];
+  pool.forEach(function(x){ if(x !== correct && unique.indexOf(x) === -1) unique.push(x); });
+  const others = shuffle(unique).slice(0, 3);
+  return shuffle([correct].concat(others));
+}
+
+/* =========================================================================
+   4. PROGRESS MUTATIONS
+   ========================================================================= */
+function touchStreak(){
+  const t = dateStr(new Date());
+  if(state.lastStudyDate === t) return;
+  const y = new Date();
+  y.setDate(y.getDate() - 1);
+  if(state.lastStudyDate === dateStr(y)){
+    state.streak = (state.streak || 0) + 1;
+  }else{
+    state.streak = 1;
+  }
+  state.lastStudyDate = t;
+}
+
+function markSeen(id){
+  const r = getRec(id);
+  if(r.mastery === 0) r.mastery = 25;
+  r.lastStudied = dateStr(new Date());
+  touchStreak();
+  saveState();
+}
+
+function markCorrect(id){
+  const r = getRec(id);
+  r.correct = (r.correct || 0) + 1;
+  r.reviews = (r.reviews || 0) + 1;
+  r.mastery = Math.min(100, (r.mastery || 0) + 25);
+  if(r.mastery >= 75) r.needReview = false;
+  r.lastStudied = dateStr(new Date());
+  touchStreak();
+  saveState();
+}
+
+function markIncorrect(id){
+  const r = getRec(id);
+  r.incorrect = (r.incorrect || 0) + 1;
+  r.reviews = (r.reviews || 0) + 1;
+  r.mastery = Math.max(0, (r.mastery || 0) - 25);
+  r.needReview = true;
+  if(r.incorrect >= 2) r.difficult = true;
+  r.lastStudied = dateStr(new Date());
+  touchStreak();
+  saveState();
+}
+
+function markNeedReview(id){
+  const r = getRec(id);
+  r.needReview = true;
+  if(r.mastery === 0) r.mastery = 25;
+  r.lastStudied = dateStr(new Date());
+  touchStreak();
+  saveState();
+}
+
+function computeStats(){
+  let mastered = 0, learning = 0, notStarted = 0, sum = 0, needReview = 0;
+  WORDS.forEach(function(w){
+    const m = masteryOf(w.id);
+    sum += m;
+    if(m <= 0) notStarted++;
+    else if(m >= 100) mastered++;
+    else learning++;
+    const r = state.words[w.id];
+    if(r && (r.needReview || r.difficult)) needReview++;
+  });
+  return {
+    total: WORDS.length,
+    mastered: mastered,
+    learning: learning,
+    notStarted: notStarted,
+    overall: Math.round(sum / WORDS.length),
+    needReview: needReview,
+    streak: state.streak || 0
+  };
+}
+
+function reviewIds(){
+  return WORDS.filter(function(w){
+    const r = state.words[w.id];
+    return !!(r && (r.needReview || r.difficult));
+  }).map(function(w){ return w.id; });
+}
+
+/* =========================================================================
+   5. AUDIO
+   ========================================================================= */
+function playAudio(id){
+  const statusEls = document.querySelectorAll('[data-audio-status="' + id + '"]');
+  const setStatus = function(text){
+    statusEls.forEach(function(el){ el.textContent = text; });
+  };
+  const src = 'audio/' + id + '.mp3';
+  try{
+    const audio = new Audio();
+    audio.src = src;
+    audio.addEventListener('error', function(){ setStatus('Audio unavailable'); });
+    audio.addEventListener('playing', function(){ setStatus('Playing British English audio…'); });
+    const p = audio.play();
+    if(p && typeof p.catch === 'function'){
+      p.catch(function(){ setStatus('Audio unavailable'); });
+    }
+  }catch(e){
+    setStatus('Audio unavailable');
+  }
+}
+
+function audioBlock(w){
+  return '' +
+    '<div class="audio-block">' +
+      '<button type="button" class="btn audio-btn" data-audio="' + esc(w.id) + '" ' +
+        'aria-label="Play British English audio for ' + esc(w.noun) + '">🔊 British English audio</button>' +
+      '<p class="audio-status" data-audio-status="' + esc(w.id) + '">Audio file not available yet</p>' +
+    '</div>';
+}
+
+/* =========================================================================
+   6. VIEW ROUTER
+   ========================================================================= */
+let currentView = 'home';
+
+function showView(name){
+  currentView = name;
+  const views = document.querySelectorAll('.view');
+  for(let i = 0; i < views.length; i++){
+    views[i].classList.toggle('active', views[i].id === 'view-' + name);
+  }
+  const tabs = document.querySelectorAll('.tab');
+  for(let i = 0; i < tabs.length; i++){
+    const on = tabs[i].dataset.view === name;
+    tabs[i].classList.toggle('active', on);
+    if(on) tabs[i].setAttribute('aria-current', 'page');
+    else tabs[i].removeAttribute('aria-current');
+  }
+  renderView(name);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function refresh(){
+  renderView(currentView);
+}
+
+function renderView(name){
+  switch(name){
+    case 'home': renderHome(); break;
+    case 'learn': renderLearn(); break;
+    case 'flashcards': renderFlash(); break;
+    case 'words': renderWords(); break;
+    case 'practice': renderPractice(); break;
+    case 'quiz': renderQuiz(); break;
+    case 'review': renderReview(); break;
+    case 'progress': renderProgress(); break;
+  }
+}
+
+/* =========================================================================
+   7. HOME
+   ========================================================================= */
+function renderHome(){
+  const s = computeStats();
+  const ids = reviewIds();
+  const el = document.getElementById('view-home');
+
+  let daily;
+  if(ids.length > 0){
+    daily =
+      '<p class="daily-msg">You have <strong>' + ids.length + '</strong> word' + (ids.length > 1 ? 's' : '') + ' to review.</p>' +
+      '<button type="button" class="btn primary lg full" data-action="start-review">Start Review</button>';
+  }else{
+    daily =
+      '<p class="ok-msg">You\'re all caught up! 🎉</p>' +
+      '<p class="muted" style="margin-bottom:12px;">Không có từ nào cần ôn tập. Hãy học từ mới nhé!</p>' +
+      '<button type="button" class="btn primary lg full" data-action="go-learn">Learn new words</button>';
+  }
+
+  el.innerHTML = '' +
+    '<div class="card">' +
+      '<h2 class="card-title">Today\'s Review</h2>' +
+      daily +
+    '</div>' +
+
+    '<div class="stat-grid">' +
+      '<div class="stat"><span class="stat-num">' + s.total + '</span><span class="stat-label">Total words</span></div>' +
+      '<div class="stat"><span class="stat-num">' + s.mastered + '</span><span class="stat-label">Learned</span></div>' +
+      '<div class="stat"><span class="stat-num">' + s.learning + '</span><span class="stat-label">In progress</span></div>' +
+      '<div class="stat"><span class="stat-num">' + s.notStarted + '</span><span class="stat-label">Not started</span></div>' +
+      '<div class="stat"><span class="stat-num">' + s.streak + '</span><span class="stat-label">Day streak</span></div>' +
+      '<div class="stat"><span class="stat-num">' + s.overall + '%</span><span class="stat-label">Progress</span></div>' +
+    '</div>' +
+
+    '<div class="card">' +
+      '<h2 class="card-title">Overall Progress</h2>' +
+      '<div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" ' +
+        'aria-valuenow="' + s.overall + '" aria-label="Overall progress">' +
+        '<div class="progress-fill" style="width:' + s.overall + '%"></div>' +
+      '</div>' +
+      '<p class="muted center" style="margin-top:10px;">' + s.overall + '% · ' +
+        s.mastered + ' mastered · ' + s.needReview + ' need review</p>' +
+    '</div>' +
+
+    '<div class="card">' +
+      '<h2 class="card-title">Quick start</h2>' +
+      '<div class="row-actions">' +
+        '<button type="button" class="btn primary" data-action="go-learn">Learn</button>' +
+        '<button type="button" class="btn" data-action="go-flashcards">Flashcards</button>' +
+        '<button type="button" class="btn" data-action="go-practice">Practice</button>' +
+        '<button type="button" class="btn" data-action="go-quiz">Quiz</button>' +
+      '</div>' +
+    '</div>';
+}
+
+/* =========================================================================
+   8. LEARN
+   ========================================================================= */
+let learnIdx = 0;
+let learnRevealed = false;
+
+function renderLearn(){
+  const w = WORDS[learnIdx];
+  const m = masteryOf(w.id);
+  const el = document.getElementById('view-learn');
+
+  const lessTag = w.lessCommon ? ' · <span class="tag tag-warn">Less common / formal</span>' : '';
+
+  let body;
+  if(learnRevealed){
+    body = revealHtml(w);
+  }else{
+    body = '' +
+      '<p class="hint">Can you remember the noun before revealing it?<br>' +
+        '<span class="muted">Bạn có nhớ danh từ trước khi xem đáp án không?</span></p>' +
+      '<button type="button" class="btn primary lg full" data-action="reveal">Show noun</button>';
+  }
+
+  el.innerHTML = '' +
+    '<div class="mode-head">' +
+      '<span class="chip">Word ' + (learnIdx + 1) + ' / ' + WORDS.length + '</span>' +
+      '<span class="chip' + (m >= 100 ? ' chip-mastered' : '') + '">' + levelLabel(m) + '</span>' +
+    '</div>' +
+    '<div class="card">' +
+      '<p class="eyebrow">ADJECTIVE</p>' +
+      '<p class="big-word">' + esc(w.adj) + '</p>' +
+      '<p class="level-line">Level ' + esc(w.level) + lessTag + '</p>' +
+      body +
+    '</div>' +
+    '<div class="row-actions">' +
+      '<button type="button" class="btn" data-action="learn-prev"' + (learnIdx === 0 ? ' disabled' : '') + '>← Previous</button>' +
+      '<button type="button" class="btn" data-action="learn-next">Next →</button>' +
+    '</div>';
+}
+
+function revealHtml(w){
+  return '' +
+    '<div class="reveal">' +
+      '<p class="eyebrow">NOUN</p>' +
+      '<p class="big-word noun">' + esc(w.noun) + '</p>' +
+      '<p class="ipa">' + esc(w.ipa) + '</p>' +
+      audioBlock(w) +
+      '<div class="info-grid">' +
+        '<div><span class="label">Vietnamese</span><p>' + esc(w.vi) + '</p></div>' +
+        '<div><span class="label">Part of speech</span><p>' + esc(w.pos) + '</p></div>' +
+      '</div>' +
+      '<div class="example">' +
+        '<span class="label">Example</span>' +
+        '<p>“' + esc(w.example) + '”</p>' +
+      '</div>' +
+      '<div class="formation">' +
+        '<span class="label">Word formation</span>' +
+        '<p class="form-line">' + esc(w.formation) + '</p>' +
+      '</div>' +
+      '<button type="button" class="btn ghost why-btn" data-why="' + esc(w.id) + '" aria-expanded="false">Why?</button>' +
+      '<div class="why-box" data-why-box="' + esc(w.id) + '" hidden><p>' + esc(w.why) + '</p></div>' +
+      '<div class="row-actions">' +
+        '<button type="button" class="btn good" data-action="know" data-id="' + esc(w.id) + '">✓ I know this</button>' +
+        '<button type="button" class="btn warn" data-action="review-flag" data-id="' + esc(w.id) + '">★ Need review</button>' +
+      '</div>' +
+    '</div>';
+}
+
+function learnNext(){
+  learnIdx = (learnIdx + 1) % WORDS.length;
+  learnRevealed = false;
+  renderLearn();
+}
+
+function learnPrev(){
+  learnIdx = (learnIdx - 1 + WORDS.length) % WORDS.length;
+  learnRevealed = false;
+  renderLearn();
+}
+
+/* =========================================================================
+   9. FLASHCARDS
+   ========================================================================= */
+let deck = null;
+let deckIdx = 0;
+let flipped = false;
+
+function initDeck(){
+  deck = shuffle(WORDS.map(function(w){ return w.id; }));
+  deckIdx = 0;
+  flipped = false;
+}
+
+function renderFlash(){
+  if(!deck) initDeck();
+
+  const w = WORD_BY_ID[deck[deckIdx]];
+  const m = masteryOf(w.id);
+  const el = document.getElementById('view-flashcards');
+
+  el.innerHTML = '' +
+    '<div class="mode-head">' +
+      '<span class="chip">Card ' + (deckIdx + 1) + ' / ' + deck.length + '</span>' +
+      '<span class="chip' + (m >= 100 ? ' chip-mastered' : '') + '">' + levelLabel(m) + '</span>' +
+      '<button type="button" class="btn small" data-action="fc-shuffle">🔀 Shuffle</button>' +
+    '</div>' +
+
+    '<div class="flashcard' + (flipped ? ' flipped' : '') + '" id="flashcard" tabindex="0" role="button" ' +
+      'aria-label="Flashcard: ' + esc(w.adj) + '. Tap or press Enter to flip.">' +
+      '<div class="fc-inner">' +
+        '<div class="fc-face fc-front">' +
+          '<p class="eyebrow">ADJECTIVE</p>' +
+          '<p class="fc-word">' + esc(w.adj.toUpperCase()) + '</p>' +
+          '<p class="fc-tap">Tap to flip · Chạm để lật thẻ</p>' +
+        '</div>' +
+        '<div class="fc-face fc-back">' +
+          '<p class="eyebrow">NOUN</p>' +
+          '<p class="fc-word">' + esc(w.noun.toUpperCase()) + '</p>' +
+          '<p class="ipa">' + esc(w.ipa) + '</p>' +
+          '<p class="fc-vi">' + esc(w.vi) + '</p>' +
+          '<p class="fc-ex">“' + esc(w.example) + '”</p>' +
+          '<p class="fc-form">' + esc(w.formation) + '</p>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+
+    '<div class="row-actions">' +
+      '<button type="button" class="btn" data-action="fc-prev">← Previous</button>' +
+      '<button type="button" class="btn primary" data-action="fc-flip">Flip</button>' +
+      '<button type="button" class="btn" data-action="fc-next">Next →</button>' +
+    '</div>' +
+    '<div class="row-actions">' +
+      '<button type="button" class="btn good" data-action="fc-know">✓ I know this</button>' +
+      '<button type="button" class="btn warn" data-action="fc-review">★ Need review</button>' +
+    '</div>';
+}
+
+function fcFlip(){
+  flipped = !flipped;
+  const card = document.getElementById('flashcard');
+  if(card) card.classList.toggle('flipped', flipped);
+  if(flipped) markSeen(deck[deckIdx]);
+}
+
+function fcNext(){
+  deckIdx = (deckIdx + 1) % deck.length;
+  flipped = false;
+  renderFlash();
+}
+
+function fcPrev(){
+  deckIdx = (deckIdx - 1 + deck.length) % deck.length;
+  flipped = false;
+  renderFlash();
+}
+
+/* =========================================================================
+   10. WORD BANK (SEARCH + FILTER)
+   ========================================================================= */
+const FILTERS = [
+  { key:'all', label:'All' },
+  { key:'notstarted', label:'Not started' },
+  { key:'learning', label:'Learning' },
+  { key:'almost', label:'Almost mastered' },
+  { key:'mastered', label:'Mastered' },
+  { key:'review', label:'Need review' },
+  { key:'lesscommon', label:'Less common / formal' }
+];
+
+let searchQuery = '';
+let activeFilter = 'all';
+
+function matchesFilter(w){
+  const m = masteryOf(w.id);
+  const r = state.words[w.id];
+  switch(activeFilter){
+    case 'notstarted': return m <= 0;
+    case 'learning': return m > 0 && m < 75;
+    case 'almost': return m === 75;
+    case 'mastered': return m >= 100;
+    case 'review': return !!(r && (r.needReview || r.difficult));
+    case 'lesscommon': return !!w.lessCommon;
+    default: return true;
+  }
+}
+
+function matchesSearch(w){
+  if(!searchQuery.trim()) return true;
+  const q = normSearch(searchQuery.trim());
+  return normSearch(w.adj).indexOf(q) !== -1 ||
+         normSearch(w.noun).indexOf(q) !== -1 ||
+         normSearch(w.vi).indexOf(q) !== -1;
+}
+
+function wordCardHtml(w){
+  const m = masteryOf(w.id);
+  return '' +
+    '<article class="word-card">' +
+      '<div class="wc-head">' +
+        '<p class="wc-form"><span class="adj">' + esc(w.adj) + '</span>' +
+          '<span class="arrow">→</span><span class="noun">' + esc(w.noun) + '</span></p>' +
+        '<span class="chip tiny' + (m >= 100 ? ' chip-mastered' : '') + '">' + levelLabel(m) + '</span>' +
+      '</div>' +
+      '<p class="ipa">' + esc(w.ipa) + '</p>' +
+      '<p class="wc-vi">' + esc(w.vi) + '</p>' +
+      '<p class="wc-ex">“' + esc(w.example) + '”</p>' +
+      '<div class="wc-foot">' +
+        '<span class="tag">' + esc(w.level) + '</span>' +
+        (w.lessCommon ? '<span class="tag tag-warn">Less common / formal</span>' : '') +
+        '<button type="button" class="btn ghost small" data-audio="' + esc(w.id) + '" ' +
+          'aria-label="British English audio for ' + esc(w.noun) + '">🔊</button>' +
+        '<button type="button" class="btn ghost small" data-why="' + esc(w.id) + '" aria-expanded="false">Why?</button>' +
+      '</div>' +
+      '<div class="why-box" data-why-box="' + esc(w.id) + '" hidden><p>' + esc(w.why) + '</p></div>' +
+    '</article>';
+}
+
+function renderWords(){
+  const el = document.getElementById('view-words');
+
+  if(!el.dataset.built){
+    let chips = '';
+    FILTERS.forEach(function(f){
+      chips += '<button type="button" class="chip-btn' + (f.key === 'all' ? ' active' : '') + '" ' +
+        'data-filter="' + f.key + '">' + esc(f.label) + '</button>';
+    });
+
+    el.innerHTML = '' +
+      '<div class="card">' +
+        '<label class="label" for="searchInput">Search / Tìm kiếm</label>' +
+        '<input id="searchInput" class="input" type="search" placeholder="curious, curiosity, tò mò…" ' +
+          'autocomplete="off" enterkeyhint="search">' +
+        '<div class="chips" role="group" aria-label="Filter words">' + chips + '</div>' +
+      '</div>' +
+      '<div id="wordList" class="word-list"></div>';
+
+    el.dataset.built = '1';
+
+    const input = el.querySelector('#searchInput');
+    input.value = searchQuery;
+    input.addEventListener('input', function(){
+      searchQuery = input.value;
+      renderWordList();
+    });
+  }
+
+  updateFilterChips();
+  renderWordList();
+}
+
+function updateFilterChips(){
+  const el = document.getElementById('view-words');
+  if(!el) return;
+  const btns = el.querySelectorAll('.chip-btn');
+  for(let i = 0; i < btns.length; i++){
+    btns[i].classList.toggle('active', btns[i].dataset.filter === activeFilter);
+  }
+}
+
+function renderWordList(){
+  const list = document.getElementById('wordList');
+  if(!list) return;
+
+  const found = WORDS.filter(function(w){
+    return matchesFilter(w) && matchesSearch(w);
+  });
+
+  if(found.length === 0){
+    list.innerHTML = '<div class="card center"><p class="muted">Không tìm thấy từ nào. / No words found.</p></div>';
+    return;
+  }
+
+  let html = '';
+  found.forEach(function(w){ html += wordCardHtml(w); });
+  list.innerHTML = html;
+}
+
+/* =========================================================================
+   11. PRACTICE
+   ========================================================================= */
+let prac = null;
+
+function makeExercise(id){
+  const w = WORD_BY_ID[id];
+  const t = 1 + Math.floor(Math.random() * 5);
+  const nouns = WORDS.map(function(x){ return x.noun; });
+  const adjs = WORDS.map(function(x){ return x.adj; });
+  const blank = blankSentence(w.example, w.noun);
+
+  if(t === 1){
+    return {
+      wordId:id, label:'Type 1 — Adjective → Noun', type:'type',
+      q:'Complete the sentence with the correct noun.<br><em>“' + esc(blank) + '”</em>',
+      hint:'Adjective: <strong>' + esc(w.adj) + '</strong>',
+      answer:w.noun, explanation:w.adj + ' → ' + w.noun, meaning:w.vi
+    };
+  }
+  if(t === 2){
+    return {
+      wordId:id, label:'Type 2 — Multiple Choice', type:'mc',
+      q:'Choose the correct noun:<br><strong>' + esc(w.adj) + '</strong> → ?',
+      options:buildOptions(w.noun, nouns),
+      hint:'Nghĩa: <strong>' + esc(w.vi) + '</strong>',
+      answer:w.noun, explanation:w.adj + ' → ' + w.noun, meaning:w.vi
+    };
+  }
+  if(t === 3){
+    return {
+      wordId:id, label:'Type 3 — Fill in the blank', type:'type',
+      q:'Fill in the blank:<br><em>“' + esc(blank) + '”</em>',
+      hint:'Nghĩa: <strong>' + esc(w.vi) + '</strong>',
+      answer:w.noun, explanation:w.adj + ' → ' + w.noun, meaning:w.vi
+    };
+  }
+  if(t === 4){
+    return {
+      wordId:id, label:'Type 4 — Reverse', type:'type',
+      q:'Give the adjective:<br><strong>' + esc(w.noun) + '</strong> → ?',
+      hint:'Nghĩa: <strong>' + esc(w.vi) + '</strong>',
+      answer:w.adj, explanation:w.noun + ' → ' + w.adj, meaning:w.vi
+    };
+  }
+  return {
+    wordId:id, label:'Type 5 — Sentence completion', type:'mc',
+    q:'Choose the correct word:<br><em>“' + esc(blank) + '”</em>',
+    options:buildOptions(w.noun, adjs.concat(nouns)),
+    hint:'Adjective: <strong>' + esc(w.adj) + '</strong>',
+    answer:w.noun, explanation:w.adj + ' → ' + w.noun, meaning:w.vi
+  };
+}
+
+function startPractice(ids, title){
+  const pool = (ids && ids.length) ? ids.slice() : WORDS.map(function(w){ return w.id; });
+  const picked = shuffle(pool).slice(0, Math.min(12, pool.length));
+  prac = {
+    title: title || 'Word Formation Practice',
+    items: picked.map(makeExercise),
+    idx: 0,
+    correct: 0,
+    answered: false,
+    given: null,
+    lastOk: null
+  };
+  showView('practice');
+}
+
+function questionBodyHtml(ex, answered, given){
+  if(ex.type === 'mc'){
+    let opts = '';
+    ex.options.forEach(function(o){
+      let cls = 'option';
+      if(answered){
+        if(o === ex.answer) cls += ' correct';
+        else if(o === given) cls += ' wrong';
+        else cls += ' dim';
+      }
+      opts += '<button type="button" class="' + cls + '" data-action="answer" data-value="' + esc(o) + '"' +
+        (answered ? ' disabled aria-disabled="true"' : '') + '>' + esc(o) + '</button>';
+    });
+    return '<div class="options">' + opts + '</div>';
+  }
+
+  return '' +
+    '<form class="answer-form" data-form="answer">' +
+      '<label class="sr-only" for="answerInput">Your answer</label>' +
+      '<input id="answerInput" class="input" type="text" name="answer" autocomplete="off" ' +
+        'autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Type your answer…" ' +
+        'value="' + (answered && given ? esc(given) : '') + '"' + (answered ? ' disabled' : '') + '>' +
+      '<button type="submit" class="btn primary"' + (answered ? ' disabled' : '') + '>Check</button>' +
+    '</form>';
+}
+
+function feedbackHtml(ex, ok, isLast){
+  return '' +
+    '<div class="feedback ' + (ok ? 'ok' : 'bad') + '" role="status" aria-live="polite">' +
+      '<p class="fb-title">' + (ok ? '✓ Correct!' : '✗ Not quite.') + '</p>' +
+      (ok ? '' : '<p>Correct answer: <strong>' + esc(ex.answer) + '</strong></p>') +
+      '<p>Explanation: <strong>' + esc(ex.explanation) + '</strong></p>' +
+      '<p class="muted">Nghĩa: ' + esc(ex.meaning) + '</p>' +
+    '</div>' +
+    '<div class="row-actions">' +
+      '<button type="button" class="btn primary lg" data-action="next-q">' +
+        (isLast ? 'See results →' : 'Next question →') +
+      '</button>' +
+    '</div>';
+}
+
+function renderPractice(){
+  const el = document.getElementById('view-practice');
+
+  if(!prac){
+    el.innerHTML = '' +
+      '<div class="card">' +
+        '<h2 class="card-title">Word Formation Practice</h2>' +
+        '<p class="muted" style="margin-bottom:6px;">5 dạng bài tập:</p>' +
+        '<ul class="muted" style="margin:0 0 14px 18px;padding:0;">' +
+          '<li>Type 1 — Adjective → Noun</li>' +
+          '<li>Type 2 — Multiple Choice</li>' +
+          '<li>Type 3 — Fill in the blank</li>' +
+          '<li>Type 4 — Reverse (noun → adjective)</li>' +
+          '<li>Type 5 — Sentence completion</li>' +
+        '</ul>' +
+        '<button type="button" class="btn primary lg full" data-action="practice-start">Start Practice (12 questions)</button>' +
+      '</div>';
+    return;
+  }
+
+  if(prac.idx >= prac.items.length){
+    const pct = prac.items.length ? Math.round(prac.correct / prac.items.length * 100) : 0;
+    el.innerHTML = '' +
+      '<div class="card center">' +
+        '<h2 class="card-title">Hoàn thành! / Session complete</h2>' +
+        '<p class="score-big">' + prac.correct + '/' + prac.items.length + '</p>' +
+        '<p class="muted">' + pct + '% correct</p>' +
+        '<div class="row-actions">' +
+          '<button type="button" class="btn primary" data-action="practice-start">Practise again</button>' +
+          '<button type="button" class="btn" data-action="go-home">Back to Home</button>' +
+        '</div>' +
+      '</div>';
+    return;
+  }
+
+  const ex = prac.items[prac.idx];
+  const answered = prac.answered;
+  const isLast = prac.idx === prac.items.length - 1;
+
+  el.innerHTML = '' +
+    '<div class="mode-head">' +
+      '<span class="chip">' + esc(prac.title) + '</span>' +
+      '<span class="chip">Question ' + (prac.idx + 1) + ' / ' + prac.items.length + '</span>' +
+      '<span class="chip">Score: ' + prac.correct + '</span>' +
+    '</div>' +
+    '<div class="progress thin"><div class="progress-fill" style="width:' +
+      Math.round(prac.idx / prac.items.length * 100) + '%"></div></div>' +
+    '<div class="card">' +
+      '<p class="eyebrow">' + esc(ex.label) + '</p>' +
+      '<p class="question">' + ex.q + '</p>' +
+      '<button type="button" class="btn ghost small" data-action="hint" style="margin-top:8px;">💡 Hint</button>' +
+      '<div data-hint-slot></div>' +
+      questionBodyHtml(ex, answered, prac.given) +
+      (answered ? feedbackHtml(ex, prac.lastOk, isLast) : '') +
+    '</div>';
+}
+
+function submitPracticeAnswer(value){
+  if(!prac || prac.answered) return;
+  const ex = prac.items[prac.idx];
+  const ok = normAnswer(value) === normAnswer(ex.answer);
+  prac.answered = true;
+  prac.given = value;
+  prac.lastOk = ok;
+  if(ok){
+    prac.correct++;
+    markCorrect(ex.wordId);
+  }else{
+    markIncorrect(ex.wordId);
+  }
+  renderPractice();
+}
+
+function nextPractice(){
+  if(!prac) return;
+  prac.idx++;
+  prac.answered = false;
+  prac.given = null;
+  prac.lastOk = null;
+  renderPractice();
+}
+
+/* =========================================================================
+   12. QUIZ
+   ========================================================================= */
+let quiz = null;
+
+function makeQuizQuestion(id, type){
+  const w = WORD_BY_ID[id];
+  const nouns = WORDS.map(function(x){ return x.noun; });
+  const adjs = WORDS.map(function(x){ return x.adj; });
+  const meanings = WORDS.map(function(x){ return x.vi; });
+  const blank = blankSentence(w.example, w.noun);
+
+  switch(type){
+    case 'adj2noun':
+      return {
+        wordId:id, label:'Adjective → Noun', type:'mc',
+        q:'What is the noun form of <strong>' + esc(w.adj) + '</strong>?',
+        options:buildOptions(w.noun, nouns),
+        answer:w.noun, hint:w.adj + ' → ?',
+        explanation:w.adj + ' → ' + w.noun, meaning:w.vi
+      };
+    case 'noun2adj':
+      return {
+        wordId:id, label:'Noun → Adjective', type:'mc',
+        q:'What is the adjective form of <strong>' + esc(w.noun) + '</strong>?',
+        options:buildOptions(w.adj, adjs),
+        answer:w.adj, hint:w.noun + ' → ?',
+        explanation:w.noun + ' → ' + w.adj, meaning:w.vi
+      };
+    case 'meaning':
+      return {
+        wordId:id, label:'Meaning', type:'mc',
+        q:'What does <strong>' + esc(w.noun) + '</strong> mean?',
+        options:buildOptions(w.vi, meanings),
+        answer:w.vi, hint:w.adj + ' → ' + w.noun,
+        explanation:w.adj + ' → ' + w.noun, meaning:w.vi
+      };
+    case 'ipa':
+      return {
+        wordId:id, label:'IPA recognition', type:'mc',
+        q:'Which word is pronounced <strong>' + esc(w.ipa) + '</strong>?',
+        options:buildOptions(w.noun, nouns),
+        answer:w.noun, hint:'British English IPA',
+        explanation:w.noun + ' ' + w.ipa, meaning:w.vi
+      };
+    case 'sentence':
+      return {
+        wordId:id, label:'Sentence completion', type:'mc',
+        q:'Choose the correct word:<br><em>“' + esc(blank) + '”</em>',
+        options:buildOptions(w.noun, adjs.concat(nouns)),
+        answer:w.noun, hint:'Adjective: ' + w.adj,
+        explanation:w.adj + ' → ' + w.noun, meaning:w.vi
+      };
+    default:
+      return {
+        wordId:id, label:'Fill in the blank', type:'type',
+        q:'Complete the sentence:<br><em>“' + esc(blank) + '”</em>',
+        options:null, answer:w.noun,
+        hint:'Adjective: ' + w.adj + ' · Nghĩa: ' + w.vi,
+        explanation:w.adj + ' → ' + w.noun, meaning:w.vi
+      };
+  }
+}
+
+function startQuiz(count, isFinal){
+  const n = (count === 0 || !count) ? WORDS.length : Math.min(count, WORDS.length);
+  const ids = shuffle(WORDS.map(function(w){ return w.id; })).slice(0, n);
+  const types = shuffle(QUIZ_TYPES);
+  const questions = ids.map(function(id, i){
+    return makeQuizQuestion(id, types[i % types.length]);
+  });
+  quiz = {
+    questions: questions,
+    idx: 0,
+    answers: [],
+    correct: 0,
+    final: !!isFinal,
+    answered: false,
+    given: null,
+    lastOk: null,
+    hintShown: false
+  };
+  renderQuiz();
+}
+
+function renderQuiz(){
+  const el = document.getElementById('view-quiz');
+
+  if(!quiz){
+    el.innerHTML = '' +
+      '<div class="card">' +
+        '<h2 class="card-title">Vocabulary Quiz</h2>' +
+        '<p class="muted" style="margin-bottom:12px;">Câu hỏi ngẫu nhiên, trộn nhiều dạng: adjective → noun, noun → adjective, nghĩa, IPA, hoàn thành câu, điền vào chỗ trống.</p>' +
+        '<div class="row-actions">' +
+          '<button type="button" class="btn primary lg" data-action="quiz-start" data-count="10">10 questions</button>' +
+          '<button type="button" class="btn lg" data-action="quiz-start" data-count="20">20 questions</button>' +
+          '<button type="button" class="btn lg" data-action="quiz-start" data-count="0">All 20 questions</button>' +
+        '</div>' +
+      '</div>' +
+      '<div class="card">' +
+        '<h2 class="card-title">🏁 Final Challenge</h2>' +
+        '<p class="muted" style="margin-bottom:12px;">20 câu hỏi · toàn bộ 20 từ · không có gợi ý (no hints).</p>' +
+        '<button type="button" class="btn primary lg full" data-action="quiz-start" data-count="20" data-final="1">Start Final Challenge</button>' +
+      '</div>';
+    return;
+  }
+
+  if(quiz.idx >= quiz.questions.length){
+    renderQuizResults();
+    return;
+  }
+
+  const q = quiz.questions[quiz.idx];
+  const total = quiz.questions.length;
+  const isLast = quiz.idx === total - 1;
+
+  let hintHtml = '';
+  if(!quiz.final && q.hint){
+    hintHtml = '<button type="button" class="btn ghost small" data-action="hint" style="margin-top:8px;">💡 Hint</button>' +
+      '<div data-hint-slot></div>';
+  }
+
+  el.innerHTML = '' +
+    '<div class="mode-head">' +
+      '<span class="chip">' + (quiz.final ? '🏁 Final Challenge' : 'Quiz') + ' · Question ' + (quiz.idx + 1) + ' / ' + total + '</span>' +
+      '<span class="chip">Score: ' + quiz.correct + '</span>' +
+    '</div>' +
+    '<div class="progress thin"><div class="progress-fill" style="width:' +
+      Math.round(quiz.idx / total * 100) + '%"></div></div>' +
+    '<div class="card">' +
+      '<p class="eyebrow">' + esc(q.label) + '</p>' +
+      '<p class="question">' + q.q + '</p>' +
+      hintHtml +
+      questionBodyHtml(q, quiz.answered, quiz.given) +
+      (quiz.answered ? feedbackHtml(q, quiz.lastOk, isLast) : '') +
+    '</div>';
+}
+
+function renderQuizResults(){
+  const total = quiz.questions.length;
+  const pct = total ? Math.round(quiz.correct / total * 100) : 0;
+  const wrong = quiz.answers.filter(function(a){ return !a.ok; });
+  const el = document.getElementById('view-quiz');
+
+  let wrongHtml = '';
+  if(wrong.length){
+    wrong.forEach(function(a){
+      const w = WORD_BY_ID[a.wordId];
+      wrongHtml += '' +
+        '<article class="word-card">' +
+          '<div class="wc-head">' +
+            '<p class="wc-form"><span class="adj">' + esc(w.adj) + '</span>' +
+              '<span class="arrow">→</span><span class="noun">' + esc(w.noun) + '</span></p>' +
+          '</div>' +
+          '<p class="ipa">' + esc(w.ipa) + '</p>' +
+          '<p class="wc-vi">' + esc(w.vi) + '</p>' +
+          '<p class="wc-ex">“' + esc(w.example) + '”</p>' +
+          '<div class="wc-foot">' +
+            '<span class="tag tag-warn">Your answer: ' + esc(a.given || '—') + '</span>' +
+            '<span class="tag">Correct: ' + esc(a.answer) + '</span>' +
+          '</div>' +
+        '</article>';
+    });
+  }
+
+  el.innerHTML = '' +
+    '<div class="card center">' +
+      '<h2 class="card-title">' + (quiz.final ? 'Final Challenge Result' : 'Quiz Result') + '</h2>' +
+      '<p class="muted">Your Score</p>' +
+      '<p class="score-big">' + quiz.correct + '/' + total + '</p>' +
+      '<p class="muted">' + pct + '%</p>' +
+      '<div class="progress" style="margin-top:14px;" role="progressbar" aria-valuemin="0" ' +
+        'aria-valuemax="100" aria-valuenow="' + pct + '" aria-label="Quiz score">' +
+        '<div class="progress-fill" style="width:' + pct + '%"></div>' +
+      '</div>' +
+      '<div class="row-actions">' +
+        '<button type="button" class="btn primary lg" data-action="quiz-retry">Retry (reshuffled)</button>' +
+        '<button type="button" class="btn lg" data-action="quiz-exit">Back to Quiz menu</button>' +
+      '</div>' +
+    '</div>' +
+    '<div class="card">' +
+      '<h2 class="card-title">Summary</h2>' +
+      '<div class="stat-row"><span>Correct answers</span><strong>' + quiz.correct + '</strong></div>' +
+      '<div class="stat-row"><span>Incorrect answers</span><strong>' + wrong.length + '</strong></div>' +
+      '<div class="stat-row"><span>Words to review</span><strong>' + wrong.length + '</strong></div>' +
+      '<div class="stat-row"><span>Percentage</span><strong>' + pct + '%</strong></div>' +
+    '</div>' +
+    (wrong.length
+      ? '<div class="card"><h2 class="card-title">Review My Mistakes</h2>' +
+        '<p class="muted" style="margin-bottom:12px;">Chỉ hiện những từ bạn trả lời sai.</p></div>' +
+        '<div class="word-list">' + wrongHtml + '</div>' +
+        '<div class="row-actions" style="margin-top:16px;">' +
+          '<button type="button" class="btn primary lg" data-action="practise-mistakes">Practise Again</button>' +
+        '</div>'
+      : '<div class="card center"><p class="ok-msg">Perfect! Không có lỗi nào. 🎉</p></div>');
+}
+
+function submitQuizAnswer(value){
+  if(!quiz || quiz.answered) return;
+  const q = quiz.questions[quiz.idx];
+  const ok = normAnswer(value) === normAnswer(q.answer);
+  quiz.answered = true;
+  quiz.given = value;
+  quiz.lastOk = ok;
+  quiz.answers.push({
+    wordId: q.wordId, ok: ok, given: value, answer: q.answer, label: q.label
+  });
+  if(ok){
+    quiz.correct++;
+    markCorrect(q.wordId);
+  }else{
+    markIncorrect(q.wordId);
+  }
+  renderQuiz();
+}
+
+function nextQuiz(){
+  if(!quiz) return;
+  quiz.idx++;
+  quiz.answered = false;
+  quiz.given = null;
+  quiz.lastOk = null;
+  quiz.hintShown = false;
+
+  if(quiz.idx >= quiz.questions.length){
+    state.quizzes.push({
+      date: dateStr(new Date()),
+      correct: quiz.correct,
+      total: quiz.questions.length,
+      final: quiz.final
+    });
+    if(state.quizzes.length > 30) state.quizzes = state.quizzes.slice(-30);
+    saveState();
+  }
+  renderQuiz();
+}
+
+/* =========================================================================
+   13. REVIEW
+   ========================================================================= */
+function renderReview(){
+  const ids = reviewIds();
+  const el = document.getElementById('view-review');
+
+  if(ids.length === 0){
+    el.innerHTML = '' +
+      '<div class="card center">' +
+        '<h2 class="card-title">Smart Review</h2>' +
+        '<p class="ok-msg">You\'re all caught up! 🎉</p>' +
+        '<p class="muted">Không có từ nào cần ôn tập. Những từ bạn trả lời sai hoặc đánh dấu “Need review” sẽ xuất hiện ở đây.</p>' +
+        '<div class="row-actions">' +
+          '<button type="button" class="btn primary" data-action="go-learn">Learn words</button>' +
+          '<button type="button" class="btn" data-action="go-quiz">Take a quiz</button>' +
+        '</div>' +
+      '</div>';
+    return;
+  }
+
+  let cards = '';
+  ids.forEach(function(id){ cards += wordCardHtml(WORD_BY_ID[id]); });
+
+  el.innerHTML = '' +
+    '<div class="card">' +
+      '<h2 class="card-title">Smart Review — ' + ids.length + ' word' + (ids.length > 1 ? 's' : '') + '</h2>' +
+      '<p class="muted" style="margin-bottom:12px;">Những từ bạn đã trả lời sai hoặc đánh dấu “Need review”.</p>' +
+      '<button type="button" class="btn primary lg full" data-action="practise-again">Practise Again</button>' +
+    '</div>' +
+    '<div class="word-list">' + cards + '</div>';
+}
+
+/* =========================================================================
+   14. PROGRESS
+   ========================================================================= */
+function renderProgress(){
+  const s = computeStats();
+  const el = document.getElementById('view-progress');
+
+  const ranked = WORDS.map(function(w){
+    const r = state.words[w.id] || {};
+    return { w:w, m:masteryOf(w.id), correct:r.correct || 0, incorrect:r.incorrect || 0, last:r.lastStudied || null };
+  });
+
+  const strongest = ranked.slice().sort(function(a, b){
+    return (b.m - a.m) || (b.correct - a.correct);
+  }).slice(0, 5);
+
+  const weakest = ranked.slice().sort(function(a, b){
+    return (a.m - b.m) || (b.incorrect - a.incorrect);
+  }).slice(0, 5);
+
+  let strongHtml = '';
+  strongest.forEach(function(x){
+    strongHtml += '<li><span class="mini-form">' + esc(x.w.adj) + ' → <span class="noun">' +
+      esc(x.w.noun) + '</span></span><span class="mini-val">' + x.m + '%</span></li>';
+  });
+
+  let weakHtml = '';
+  weakest.forEach(function(x){
+    weakHtml += '<li><span class="mini-form">' + esc(x.w.adj) + ' → <span class="noun">' +
+      esc(x.w.noun) + '</span></span><span class="mini-val">' + x.m + '%</span></li>';
+  });
+
+  let historyHtml = '';
+  if(state.quizzes.length === 0){
+    historyHtml = '<p class="muted">Chưa có quiz nào. / No quizzes yet.</p>';
+  }else{
+    state.quizzes.slice(-5).reverse().forEach(function(q){
+      historyHtml += '<div class="stat-row"><span>' + esc(q.date) +
+        (q.final ? ' · Final Challenge' : ' · Quiz') + '</span><strong>' +
+        q.correct + '/' + q.total + '</strong></div>';
+    });
+  }
+
+  el.innerHTML = '' +
+    '<div class="stat-grid">' +
+      '<div class="stat"><span class="stat-num">' + s.total + '</span><span class="stat-label">Words</span></div>' +
+      '<div class="stat"><span class="stat-num">' + s.mastered + '</span><span class="stat-label">Mastered</span></div>' +
+      '<div class="stat"><span class="stat-num">' + s.learning + '</span><span class="stat-label">Learning</span></div>' +
+      '<div class="stat"><span class="stat-num">' + s.needReview + '</span><span class="stat-label">Need review</span></div>' +
+      '<div class="stat"><span class="stat-num">' + s.overall + '%</span><span class="stat-label">Progress</span></div>' +
+      '<div class="stat"><span class="stat-num">' + s.streak + '</span><span class="stat-label">Day streak</span></div>' +
+    '</div>' +
+
+    '<div class="card">' +
+      '<h2 class="card-title">Overall Progress</h2>' +
+      '<div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" ' +
+        'aria-valuenow="' + s.overall + '" aria-label="Overall progress">' +
+        '<div class="progress-fill" style="width:' + s.overall + '%"></div>' +
+      '</div>' +
+      '<p class="muted center" style="margin-top:10px;">' + s.overall + '% · ' +
+        s.mastered + ' mastered · ' + s.learning + ' learning · ' + s.notStarted + ' not started</p>' +
+    '</div>' +
+
+    '<div class="card">' +
+      '<h2 class="card-title">Strongest words</h2>' +
+      '<ul class="list-mini">' + strongHtml + '</ul>' +
+    '</div>' +
+
+    '<div class="card">' +
+      '<h2 class="card-title">Words to review</h2>' +
+      '<ul class="list-mini">' + weakHtml + '</ul>' +
+    '</div>' +
+
+    '<div class="card">' +
+      '<h2 class="card-title">Recent quiz scores</h2>' +
+      historyHtml +
+    '</div>' +
+
+    '<div class="card">' +
+      '<h2 class="card-title">Reset</h2>' +
+      '<p class="muted" style="margin-bottom:12px;">Xoá toàn bộ tiến độ học và bắt đầu lại từ đầu.</p>' +
+      '<button type="button" class="btn danger full" data-action="reset-open">Reset Progress</button>' +
+    '</div>';
+}
+
+/* =========================================================================
+   15. WHY? TOGGLE
+   ========================================================================= */
+function toggleWhy(btn){
+  const id = btn.dataset.why;
+  const container = btn.closest('.card, .word-card, .learn-card') || document;
+  const box = container.querySelector('[data-why-box="' + id + '"]');
+  if(!box) return;
+  box.hidden = !box.hidden;
+  btn.setAttribute('aria-expanded', String(!box.hidden));
+}
+
+function showHint(){
+  if(currentView === 'practice' && prac && !prac.answered){
+    const ex = prac.items[prac.idx];
+    const slot = document.querySelector('#view-practice [data-hint-slot]');
+    if(slot && ex.hint) slot.innerHTML = '<p class="hint-text">' + ex.hint + '</p>';
+  }
+  if(currentView === 'quiz' && quiz && !quiz.answered && !quiz.final){
+    const q = quiz.questions[quiz.idx];
+    const slot = document.querySelector('#view-quiz [data-hint-slot]');
+    if(slot && q.hint){
+      slot.innerHTML = '<p class="hint-text">' + esc(q.hint) + '</p>';
+      quiz.hintShown = true;
+    }
+  }
+}
+
+/* =========================================================================
+   16. EVENT DELEGATION
+   ========================================================================= */
+document.addEventListener('click', function(e){
+  const tab = e.target.closest('.tab');
+  if(tab){
+    showView(tab.dataset.view);
+    return;
+  }
+
+  const audioBtn = e.target.closest('[data-audio]');
+  if(audioBtn){
+    playAudio(audioBtn.dataset.audio);
+    return;
+  }
+
+  const whyBtn = e.target.closest('[data-why]');
+  if(whyBtn){
+    toggleWhy(whyBtn);
+    return;
+  }
+
+  const filterBtn = e.target.closest('[data-filter]');
+  if(filterBtn){
+    activeFilter = filterBtn.dataset.filter;
+    updateFilterChips();
+    renderWordList();
+    return;
+  }
+
+  const actionBtn = e.target.closest('[data-action]');
+  if(actionBtn){
+    handleAction(actionBtn.dataset.action, actionBtn);
+    return;
+  }
+
+  const fc = e.target.closest('#flashcard');
+  if(fc){
+    fcFlip();
+  }
+});
+
+document.addEventListener('keydown', function(e){
+  if((e.key === 'Enter' || e.key === ' ') && e.target && e.target.id === 'flashcard'){
+    e.preventDefault();
+    fcFlip();
+  }
+});
+
+document.addEventListener('submit', function(e){
+  const form = e.target.closest('[data-form="answer"]');
+  if(!form) return;
+  e.preventDefault();
+  const input = form.querySelector('input');
+  if(!input) return;
+  const val = input.value.trim();
+  if(!val) return;
+  if(currentView === 'practice') submitPracticeAnswer(val);
+  else if(currentView === 'quiz') submitQuizAnswer(val);
+});
+
+function handleAction(action, btn){
+  switch(action){
+    /* navigation */
+    case 'go-home': showView('home'); break;
+    case 'go-learn': showView('learn'); break;
+    case 'go-flashcards': showView('flashcards'); break;
+    case 'go-words': showView('words'); break;
+    case 'go-practice': showView('practice'); break;
+    case 'go-quiz': showView('quiz'); break;
+    case 'go-review': showView('review'); break;
+    case 'go-progress': showView('progress'); break;
+
+    /* home */
+    case 'start-review': {
+      const ids = reviewIds();
+      if(ids.length) startPractice(ids, 'Daily Review');
+      else showView('review');
+      break;
+    }
+
+    /* learn */
+    case 'reveal':
+      learnRevealed = true;
+      markSeen(WORDS[learnIdx].id);
+      renderLearn();
+      break;
+    case 'learn-next': learnNext(); break;
+    case 'learn-prev': learnPrev(); break;
+    case 'know': {
+      const id = btn.dataset.id;
+      markCorrect(id);
+      learnNext();
+      break;
+    }
+    case 'review-flag': {
+      const id = btn.dataset.id;
+      markNeedReview(id);
+      learnNext();
+      break;
+    }
+
+    /* flashcards */
+    case 'fc-flip': fcFlip(); break;
+    case 'fc-next': fcNext(); break;
+    case 'fc-prev': fcPrev(); break;
+    case 'fc-shuffle': initDeck(); renderFlash(); break;
+    case 'fc-know': {
+      const id = deck[deckIdx];
+      markCorrect(id);
+      fcNext();
+      break;
+    }
+    case 'fc-review': {
+      const id = deck[deckIdx];
+      markNeedReview(id);
+      fcNext();
+      break;
+    }
+
+    /* practice */
+    case 'practice-start': startPractice(null, 'Word Formation Practice'); break;
+    case 'practise-again': {
+      const ids = reviewIds();
+      if(ids.length) startPractice(ids, 'Smart Review');
+      else showView('review');
+      break;
+    }
+    case 'practise-mistakes': {
+      if(!quiz) break;
+      const ids = quiz.answers.filter(function(a){ return !a.ok; }).map(function(a){ return a.wordId; });
+      const unique = ids.filter(function(v, i){ return ids.indexOf(v) === i; });
+      if(unique.length) startPractice(unique, 'Review My Mistakes');
+      else showView('practice');
+      break;
+    }
+
+    /* quiz */
+    case 'quiz-start': {
+      const count = parseInt(btn.dataset.count, 10) || 0;
+      startQuiz(count, btn.dataset.final === '1');
+      break;
+    }
+    case 'quiz-retry': {
+      const total = quiz ? quiz.questions.length : 10;
+      const isFinal = quiz ? quiz.final : false;
+      startQuiz(total, isFinal);
+      break;
+    }
+    case 'quiz-exit': quiz = null; renderQuiz(); break;
+
+    /* shared question flow */
+    case 'answer': {
+      const val = btn.dataset.value;
+      if(currentView === 'practice') submitPracticeAnswer(val);
+      else if(currentView === 'quiz') submitQuizAnswer(val);
+      break;
+    }
+    case 'next-q':
+      if(currentView === 'practice') nextPractice();
+      else if(currentView === 'quiz') nextQuiz();
+      break;
+    case 'hint': showHint(); break;
+
+    /* reset */
+    case 'reset-open': {
+      const dlg = document.getElementById('confirmReset');
+      if(dlg && typeof dlg.showModal === 'function'){
+        dlg.showModal();
+      }else if(window.confirm('Reset all progress? This cannot be undone.')){
+        doReset();
+      }
+      break;
+    }
+    case 'reset-cancel': {
+      const dlg = document.getElementById('confirmReset');
+      if(dlg && typeof dlg.close === 'function') dlg.close();
+      break;
+    }
+    case 'reset-confirm': {
+      const dlg = document.getElementById('confirmReset');
+      if(dlg && typeof dlg.close === 'function') dlg.close();
+      doReset();
+      break;
+    }
+  }
+}
+
+function doReset(){
+  state = { words:{}, streak:0, lastStudyDate:null, quizzes:[] };
+  try{ localStorage.removeItem(STORAGE_KEY); }catch(e){}
+  saveState();
+
+  learnIdx = 0;
+  learnRevealed = false;
+  deck = null;
+  deckIdx = 0;
+  flipped = false;
+  prac = null;
+  quiz = null;
+  searchQuery = '';
+  activeFilter = 'all';
+
+  const wordsView = document.getElementById('view-words');
+  if(wordsView){
+    wordsView.dataset.built = '';
+    wordsView.innerHTML = '';
+  }
+
+  showView('home');
+}
+
+/* =========================================================================
+   17. INIT
+   ========================================================================= */
+loadState();
+showView('home');
+</script>
+</body>
+</html>
